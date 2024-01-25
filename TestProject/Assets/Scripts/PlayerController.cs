@@ -5,11 +5,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private float _moveSpeed = 10f;
+    [SerializeField] private int health = 100;
+    [SerializeField] private float _moveSpeed = 10f;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform shotPoint;
+    [SerializeField] private float bulletSpeed = 15;
     private Vector2 _moveDirection;
-    public GameObject bulletPrefab;
-    public Transform shotPoint;
-    private float bulletSpeed = 15;
 
     private void OnMove(InputAction.CallbackContext context)
     {
@@ -41,5 +42,15 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move(_moveDirection);
+
+        if (health <= 0) 
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }
