@@ -349,9 +349,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c957814a31d61e4393a4c90f958f953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 4
   enemySpeed: 3
-  damage: 10
+  damage: 100
   player: {fileID: 1882082828}
 --- !u!50 &765731371
 Rigidbody2D:
@@ -588,7 +588,6 @@ MonoBehaviour:
   _moveSpeed: 10
   bulletPrefab: {fileID: 5237309134808772500, guid: 22d2c0232493b9a40bf7ce5785ef3be0, type: 3}
   shotPoint: {fileID: 1940366152}
-  bulletSpeed: 10
 --- !u!114 &1882082829
 MonoBehaviour:
   m_ObjectHideFlags: 0

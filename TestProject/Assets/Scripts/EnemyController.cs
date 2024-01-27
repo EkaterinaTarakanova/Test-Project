@@ -8,7 +8,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float enemySpeed = 10f;
     [SerializeField] private int damage = 10;
     private Rigidbody2D _rigidbody;
-    [SerializeField] private PlayerController player;
 
     private void Awake()
     {
@@ -23,17 +22,13 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         MoveLeft();
-        
-        var leftBoundary = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x;
 
-        if (transform.position.x < leftBoundary)
-        {
-            DamagePlayer(player);
-        }
+        CheckLeftBoundary();
 
         if (health <= 0) 
         {
             Destroy(gameObject);
+            EnemyCounter.killCounter++;
         }
     }
 
@@ -46,7 +41,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            DamagePlayer(player);
+            DamagePlayer(PlayerController.player);
         }
     }
 
@@ -56,6 +51,19 @@ public class EnemyController : MonoBehaviour
         {
             player.TakeDamage(damage);
             Destroy(gameObject);
+        }
+    }
+
+    private float GetLeftBoundary() 
+    {
+        return Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x;
+    }
+
+    private void CheckLeftBoundary() 
+    {
+        if (transform.position.x < GetLeftBoundary())
+        {
+            DamagePlayer(PlayerController.player);
         }
     }
 }
