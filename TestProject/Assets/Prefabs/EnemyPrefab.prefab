@@ -134,10 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c957814a31d61e4393a4c90f958f953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 6
-  enemySpeed: 3
-  damage: 10
-  player: {fileID: 1328491286230319257, guid: c2ccc4c693e32e64fa41e0cc2c1a1e5d, type: 3}
+  health: 4
+  enemySpeed: 4.75
+  damage: 1
 --- !u!50 &992477941466674279
 Rigidbody2D:
   serializedVersion: 4

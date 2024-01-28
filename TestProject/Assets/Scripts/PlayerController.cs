@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private int health = 100;
     [SerializeField] private float _moveSpeed = 10f;
+    [SerializeField] private Text healthText;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform shotPoint;
-    [SerializeField] private Text healthText;
     private Vector2 _moveDirection;
     public static PlayerController player;
 
@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
+        
             Shoot();
         }
     }
